@@ -16,22 +16,21 @@ with
             , rental.customer_id
             , rental.rental_date
             , rental.return_date
-            , rental.last_update
             , payment.payment_id
             , payment.customer_id
             , payment.staff_id
-            , payment.rental_id
             , payment.amount
             , payment.payment_date
         from rental
         left join payment on rental.rental_id = payment.rental_id
     )
 
-    , trasnsform as (
+    , transform as (
         select
-            row_number() over
-
+            row_number() over (order by rental_id) as sk_date
+            , *
+        from join_tabelas
     )
 
 select *
-from uniao_tabelas
+from transform
