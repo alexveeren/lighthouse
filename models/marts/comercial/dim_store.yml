@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_store
+    description: Tabela dimensão de categorias.
+    columns:
+      - name: sk_store
+        description: Chave primária da tabela de categorias.
+        tests:
+          - unique
+          - not_null
+
+      - name: store_id
+        description: nenhuma descrição
+        
+      - name: manager_staff_id
+        description: nenhuma descrição
+        
+      - name: address_id
+        description: nenhuma descrição
+        

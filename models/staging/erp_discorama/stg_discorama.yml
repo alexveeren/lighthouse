@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_erp__category
+    columns:
+      - name: category_id
+        tests:
+          - unique
+          - not_null
+          
+  
+  - name: stg_erp__payment
+    columns:
+      - name: payment_id
+        test:
+          - unique
+          - not_null
+
+  
+  - name: stg_erp__rental
+    columns:
+      - name: rental_id
+        test:
+          - unique
+          - not_null
+          

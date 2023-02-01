@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: discorama
+    description: Banco réplica do erp da Discorama
+    schema: dbt_alexveeren
+    tables:
+      - name: film
+
+      - name: rental
+
+      - name: payment
+
+      - name: category
+
+      - name: store
+
+      - name: film_category

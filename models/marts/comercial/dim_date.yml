@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Tabela dimensão de categorias.
+    columns:
+      - name: sk_date
+        description: Chave primária da tabela de categorias.
+        tests:
+          - unique
+          - not_null
+
+      - name: rental.rental_id
+        description: nada
+        test:
+          
+      - name: rental.staff_id
+        description: nada
+        test:
+          
+      - name: rental.inventory_id
+        description: nada
+        test:
+          
+      - name: rental.customer_id
+        description: nada
+        test:
+          
+      - name: rental.rental_date
+        description: nada
+        test:
+          
+      - name: rental.return_date
+        description: nada
+        test:
+          
+      - name: payment.payment_id
+        description: nada
+        test:
+          
+      - name: payment.customer_id
+        description: nada
+        test:
+          
+      - name: payment.staff_id
+        description: nada
+        test:
+          
+      - name: payment.amount
+        description: nada
+        test:
+          
+      - name: payment.payment_date
+        description: nada
+        test:
+          
