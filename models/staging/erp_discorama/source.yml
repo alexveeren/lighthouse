@@ -16,3 +16,7 @@ sources:
       - name: store
 
       - name: film_category
+
+      - name: inventory
+
+      - name: staff

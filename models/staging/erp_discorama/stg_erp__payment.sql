@@ -6,9 +6,20 @@ with
             ,cast(staff_id as int) as staff_id
             ,cast(rental_id as int) as rental_id
             ,cast(amount as numeric) as amount
-            ,cast(payment_date as timestamp) as payment_date
+            ,cast(payment_date as datetime) as payment_date
         from {{ source('discorama', 'payment') }}
     )
 
+    , final as (
+        select
+            payment_id
+            , customer_id
+            , staff_id
+            , rental_id
+            , amount
+            , cast(payment_date as date) as payment_date
+        from source_payment
+    )
+
 select *
-from source_payment
+from final

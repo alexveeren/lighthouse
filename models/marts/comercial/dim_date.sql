@@ -1,36 +1,23 @@
 with
-    rental as (
-        select *
-        from {{ ref('stg_erp__rental') }}
-    )
-    , payment as (
-        select *
-        from {{ ref('stg_erp__payment') }}
-    )
-
-    , join_tabelas as (
-        select
-            rental.rental_id
-            , rental.staff_id
-            , rental.inventory_id
-            , rental.customer_id
-            , rental.rental_date
-            , rental.return_date
-            , payment.payment_id
-            , payment.customer_id
-            , payment.staff_id
-            , payment.amount
-            , payment.payment_date
-        from rental
-        left join payment on rental.rental_id = payment.rental_id
+    dates as(
+        {{ dbt_utils.date_spine(
+            datepart="day",
+            start_date="cast('2000-01-01' as date)",
+            end_date="cast('2010-01-01' as date)"
+           )
+        }}
     )
 
-    , transform as (
-        select
-            row_number() over (order by rental_id) as sk_date
-            , *
-        from join_tabelas
+    , final as(
+        select cast(date_day as date) as date_day
+            , extract(month from date_day) as mes
+            , extract(quarter from date_day) as trimestre
+            , extract(year from date_day) as ano
+            , extract(week from date_day) as semana
+        from dates
     )
+
+    
 
 select *
-from transform
+from final
