@@ -4,10 +4,10 @@ with
         from {{ ref('dim_store') }}
     )
 
-    --, category as (
-    --    select *
-    --    from {{ ref('dim_category') }}
-    --)
+    , category as (
+        select *
+        from {{ ref('dim_category') }}
+    )
 
     , dates as (
         select *

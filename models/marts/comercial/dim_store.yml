@@ -11,11 +11,11 @@ models:
           - not_null
 
       - name: store_id
-        description: nenhuma descrição
+        description: id da loja
         
       - name: manager_staff_id
-        description: nenhuma descrição
+        description: id do gerente
         
       - name: address_id
-        description: nenhuma descrição
+        description: id de endereços
         

@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_category
+    description: Tabela dimensão de categorias de filmes (ação, comedia...).
+    columns:
+      - name: sk_category
+        description: Chave primária da tabela de categorias.
+        tests:
+          - unique
+          - not_null
+
+      - name: category.category_id
+        description: identificação das categorias por id
+        
+      - name: category.type
+        description: tipo de filme que junta com o id
+        
+      - name: film_category.film_id
+        description: id para cada filme
+        
